@@ -24,15 +24,17 @@ export const router = createBrowserRouter([
         {
           path: '/blog/:id',
           element: <Blog></Blog>,
-          loader: ({ params }) => fetch(`https://dev.to/api/articles/${params.id}`),
+          loader: ({ params }) => fetch(`https://dev.to/api/articles/${params?.id}`),
           children: [
               {
-                  index: true, //dhukelei eta dekhabe
-                  content: <Content></Content>
+                  index: true,
+                  element: <Content></Content>,
+                  loader: ({ params }) => fetch(`https://dev.to/api/articles/${params?.id}`),
               },
               {
                   path: 'author',
-                  content: <Author></Author>
+                  element: <Author></Author>,
+                  loader: ({ params }) => fetch(`https://dev.to/api/articles/${params?.id}`),
               }
           ]
         },

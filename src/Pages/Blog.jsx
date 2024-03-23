@@ -3,10 +3,12 @@ import { Link, Outlet, useLoaderData } from "react-router-dom";
 
 const Blog = () => {
     const [tabIndex, setTabIndex] = useState(0);
+
     const blog = useLoaderData();
     
-
-    const { comments_count, title, reading_time_minutes, public_reactions_count, published_at } = blog;
+    const { comments_count, title, reading_time_minutes, 
+        public_reactions_count, published_at, tags } = blog;
+    
     return (
         <div className="max-w-3xl px-6 py-16 mx-auto space-y-12">
             <article className="space-y-8 dark:bg-gray-800 dark:text-gray-50">
@@ -39,15 +41,13 @@ const Blog = () => {
                                 <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
                             </svg>
                             <span>Author</span>
-
-
                         </Link>
-
-
                     </div>
                 </div>
                 <Outlet></Outlet>
             </article>
+
+            
            
         </div>
     );
