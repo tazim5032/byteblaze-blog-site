@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 const EmptySatate = ({ message, address, label}) => {
     return (
@@ -19,4 +20,9 @@ const EmptySatate = ({ message, address, label}) => {
     );
 };
 
+EmptySatate.propTypes = {
+    message: PropTypes.string,
+    address: PropTypes.string,
+    label: PropTypes.string
+}
 export default EmptySatate;
